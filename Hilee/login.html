@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hilee</title>
+    <link rel="stylesheet" href="design.css">
+    <link rel="stylesheet" href="login.css">
+    <link rel="icon" type="png" href="hilee.png">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+
+            <div class="logo">
+               <a href="#"><img src="hilee.png"></a> 
+            </div>
+
+        <ul>
+            <li><a href="#">Account</a></li>
+            <li><a href="#">Cart</a></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Product</a></li>
+        </ul>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="sidebar">
+                <div class="profile-info">
+                    <div class="profile-pic"></div>
+                    <h2>Joshua Railey Perez</h2>
+                    <a href="login.html" class="edit-profile">Edit profile</a>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#">Cart</a></li>
+                        <li><a href="profile.html">Account</a></li>
+                        <li><a href="#">Notification</a></li>
+                        <li><a href="#">Order History</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="profile-details">
+                <h3>My Profile</h3>
+                <p>Manage and protect your account</p>
+                <hr>
+                <form>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" value="JRPerez123" readonly disabled>
+    
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" placeholder="Type your preferred name">
+    
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" placeholder="Type your new email">
+    
+                    <label>Gender:</label>
+                    <label><input type="radio" name="gender" value="male"> Male</label>
+                    <label><input type="radio" name="gender" value="female"> Female</label>
+    
+                    <label for="contact">Contact:</label>
+                    <input type="text" id="contact" placeholder="Type here"> <br>
+                    
+                    <button type="submit">Save Changes</button> <br>
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
