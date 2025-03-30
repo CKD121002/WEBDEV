@@ -181,22 +181,5 @@
     }
     
     
-    .flask {
-        position: absolute; /* Changed to absolute */
-        
-        bottom: 30px; /* Adjust this value to position the flasks */
-        height: 300px;
-        width: 300px; /* Set a width for the flasks */
-        z-index: 5; /* Ensure flasks are above other elements */
-        align-items: bottom;
-
-    }
     
-    #flask1 {
-        left: 20%; /* Adjust left position */
-    }
-    
-    #flask2 {
-        right: 20%; /* Adjust right position */
-    }
      
