@@ -1,0 +1,138 @@
+*{
+    margin: 0%;
+}
+body {
+    margin: 0;
+}
+header {
+    background-color: #9677b5;
+    width: 100%;
+    height: 100px;
+    position: fixed;
+    z-index: 10;
+}
+.navbar {
+    display:flex;
+    float: center;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-top: 10px;
+    padding-left: 50px;
+}
+.logo {
+    color: black;
+}
+.logo img {
+    width: 80px;
+    border-radius: 50%;
+}
+li {
+    list-style: none;
+    display: inline-flex;
+    position: static;
+    padding: 16px 17px;
+}
+li a:hover {
+    color: burlywood;
+}
+li a {
+    font-family:sans-serif ;
+    font-size: 25px;
+    color: white;
+    margin-right: 20px;
+    font-weight: bold;
+}
+.imagecontainer{
+    display: flex;
+    justify-content: space-evenly;
+    position: relative;
+    top: 180px;
+    gap: 20px;
+    padding: 20px;
+        }
+        h1{
+            background: linear-gradient(#a1dcfa,#a79ccd);
+            text-align: right;
+            display: block;
+            padding-top: 30px;
+            padding-bottom: 30px;
+            padding-right: 100px;
+            position: relative;
+            top: 120px;
+            margin-right: 60%;
+            font-size: 50px;
+            height: 50px;
+            z-index: 0;
+            font-family: sans-serif;
+        }
+        .image-box {
+            position: relative;
+            bottom: 45px;
+            width: auto; 
+            height: auto; 
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: 1s;
+        }
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .image-box .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0 , 0 , 0.5);
+            color: black;
+            padding: 10px;
+            text-align: center;
+            box-sizing: border-box;
+            font-size:20px;
+            font-weight: 200;
+        }
+        .image-box:hover{
+            transform: scale(1.1);
+            z-index: 2;
+        }a{
+            color: white;
+        }
+        .shadow{
+            filter: drop-shadow(5px 5px 10px #555);
+        }
+        @keyframes slideinleft{
+            from{
+                transform: translateX(-1000px);
+            }
+            to{
+                transform: translateX(0);
+            }
+        }
+        .popinleft{
+            animation-name: slideinleft;
+            animation-duration: 1s;
+            animation-timing-function: ease;
+            animation-delay: 0s;
+            animation-iteration-count: 1;
+            animation-direction: normal;
+            animation-fill-mode: none;
+        }
+        @keyframes slideinright{
+            from{
+                transform: translateX(1000px);
+            }
+            to{
+                transform: translateX(0);
+            }
+        }
+        .popinright{
+            animation-name: slideinright;
+            animation-duration: 1s;
+            animation-timing-function: ease;
+            animation-delay: 0s;
+            animation-iteration-count: 1;
+            animation-direction: normal;
+            animation-fill-mode: none;
+        }
