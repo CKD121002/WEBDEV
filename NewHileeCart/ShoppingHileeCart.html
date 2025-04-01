@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="ShopCart.css">
+     <link rel="icon" type="png" href="hilee.png">
+</head>
+
+<body>
+    <header>
+            <div class="navbar">
+    
+                <div class="logo">
+                   <a href="#"><img src="hilee.png"></a> 
+                </div>
+                <ul>
+                    <li><a href="login.html">Account</a></li>
+                    <li><a href="ShoppingHileeCart.html">Cart</a></li>
+                    <li><a href="/HILEEWEB/HILEETUMBLER.html">Home</a></li>
+                    <li><a href="/About/about.html">About</a></li>
+                    <li><a href="/PRODUCT/ProductWebDev.html">Product</a></li>
+                </ul>
+            </div>
+    </header> 
+    <div class="background-box">
+    <table>
+
+        <tr>
+            <th colspan="2">Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th>
+        <div>
+            <th colspan="4" class="order">Order Summary</th>
+        </div>
+            
+        </tr>
+
+        <tr>
+            <td rowspan="3">
+            <img src="Sakura pink.png" class="shadow">  
+            </td> 
+                <td>
+                <p><b>HILEE Flask Sakura Hydration Stainless Steel</b></p>
+                </td>
+                <td rowspan="3">
+                    
+                    </td> 
+                <td rowspan="3">₱ 300.47</td>
+                <td rowspan="3">₱ 600.94</td> 
+
+                <div>
+                <td rowspan="3" class="order" id="info"> <img src="locationicon.png" alt="locationicon" id="location">  
+                    <b>Aria Win</b> (+63) 9123456789 
+                    <br> Blk. 31 Masinop St. Brgy. San Juan, 
+                    <br>Cainta Rizal, South Luzon, 1900
+                </td> 
+                </div>
+        </tr>
+            <tr>
+                <td>
+                <select name="sakuravariety" id="Color">
+                    <optgroup label="Color Variety"></optgroup>
+                    <option value="Cherry Blossom(Light Pink)">Cherry Blossom(Light Pink)</option>
+                    <option value="Sunflower">Sunflower</option>
+                    <option value="Magnolia">Magnolia</option>
+                    </optgroup>
+                </select>
+                </td>    
+            </tr>      
+            <td>
+                    <select name="sizes" id="sizes">
+                        <optgroup label="Sizes">
+                        <option value="20oz">20oz</option>
+                        <option value="27oz">27oz</option>
+                        <option value="33oz">33oz</option>
+                        <option value="43oz">43oz</option>
+                    </optgroup>
+                    </select>
+                </td>    
+            </tr>
+        <tr>
+                <td rowspan="3">
+                <img src="Little White Flower.png" class="shadow"> 
+                </td>  
+                    <td>
+                    <p><b>HILEE Free Sip Insulated Leak Proof Tumbler</b></p>
+                    </td>
+                        <td rowspan="3">
+                           
+                        </td> 
+
+                   
+                <td rowspan="3">₱ 341.91</td>
+                <td rowspan="3">₱ 341.91</td>  
+                <div>
+                    <td class="order" id="total"> Subtotal: <b>₱ 1,616.07</b></td>   
+                    </div>   
+                         
+            </tr>
+           
+            <tr>
+                <td>
+                <select name="Sippy" id="Color">
+                    <optgroup label="Color Variety">
+                    <option value="Little White Flower">Little White Flower</option>
+                    <option value="Blue Bow">Blue Bow</option>
+                    <option value="White">White</option>
+                </optgroup>
+                </select>
+                </td>
+                <td rowspan="2" class="order" id="total"> Shipping Fee: <b>Free</b></td> 
+            </tr>
+                <tr>
+                        <td>
+                            <select name="sizes" id="sizes">
+                                <optgroup label="Sizes">
+                                <option value="20oz">20oz</option>
+                                <option value="27oz">27oz</option>
+                                <option value="33oz">33oz</option>
+                                <option value="43oz">43oz</option>
+                            </optgroup>
+                            </select>
+                        </td>    
+                        
+                    </tr>
+          
+            <tr>
+                <td rowspan="3">
+                <img src="Fruit pear.png" class="shadow">  
+                </td> 
+                    <td>
+                    <p><b>HILEE Fruit Version Vacuum-Insulated Stainless Steel</b></p>
+                    </td>
+                <div class="quantity">    
+                    <td rowspan="3">
+                        <span class="subtract">-</span>
+                        <span class="number">1</span>
+                        <span class="addition">+</span>
+                        
+                    </td> 
+                </div>    
+                <td rowspan="3">₱ 336.61</td>
+                <td rowspan="3">₱ 673.22</td>
+                <td class="order" id="total"> Total <b>₱ 1,616.07</b></td>
+                    
+            </tr>
+            <tr>
+                <td>
+                <select name="Fruity" id="Color">
+                    <optgroup label="Color Variety">
+                    <option value="Pear">Pear</option>
+                    <option value="Wax Apple">Wax Apple</option>
+                    <option value="Banana">Banana</option>
+                    </optgroup>
+                </select>
+                </td>
+              <div>
+              <td rowspan="2" class="order"> <button  class="button">Add Product</button> <button class="button">Checkout</button></td>
+              </div> 
+            </tr>
+            <tr>
+                <td>
+                    <select name="sizes" id="sizes">
+                        <optgroup label="Sizes">
+                        <option value="20oz">20oz</option>
+                        <option value="27oz">27oz</option>
+                        <option value="33oz">33oz</option>
+                        <option value="43oz">43oz</option>
+                    </optgroup>
+                    </select>
+                    
+                </td>    
+            </tr>
+            
+
+        </div>
+    </table>
+</div>
+</body>
+</html>
