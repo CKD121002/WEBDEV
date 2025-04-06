@@ -1,0 +1,152 @@
+body {
+    font-family: "Roboto", sans-serif;
+    background: linear-gradient(#d7bdef, #a7d1f7);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.container {
+    /* Added a new background style. Adjust the colors as needed. */
+    background: linear-gradient(to bottom left, #e0b0ff, #ffffff);  
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    aspect-ratio: 16 / 9;
+    min-height: 300px;
+    flex-direction: row;
+}
+
+/* Bottom-left image */
+.container::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 300px;
+    height: 300px;
+    background: url('Bg 1.png') no-repeat center/contain;
+    pointer-events: none; 
+    z-index: 1;
+} 
+
+/* Top-right image */
+.container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 300px;
+    background: url('bg 2.png') no-repeat center/contain;
+    pointer-events: none; 
+    z-index: 1;
+}
+
+.contact-form, .info {
+    margin: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    flex: 1;
+    overflow: auto;
+}
+
+.contact-form {
+    background-color: #A7CEEB;
+}
+
+/* Bottom-left image */
+.container::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 300px;
+    height: 300px;
+    background: url('Bg 1.png') no-repeat center/contain;
+    pointer-events: none; 
+    z-index: 1;
+} 
+
+/* Top-right image */
+.container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 300px;
+    background: url('bg 2.png') no-repeat center/contain;
+    pointer-events: none; 
+    z-index: 1;
+}
+
+
+.info {
+    background-color: #B2E1F2;
+}
+
+.info p {
+    word-spacing: 5px; /* Adjust space between words */
+    padding: 5px 0;    /* Adds space between paragraphs */
+}
+
+h1, h2 {
+    color: #4A2C6D;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4A2C6D;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: pink;
+}
+
+/* Icon Inside Input Styling */
+.input-wrapper {
+    position: relative;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.input-wrapper i {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    color: #4A2C6D;
+    font-size: 16px;
+    pointer-events: none;
+}
+
+.input-wrapper input,
+.input-wrapper textarea {
+    width: 100%;
+    padding: 10px 10px 10px 36px; /* space for the icon */
+    border: 1px solid #4A2C6D;
+    border-radius: 5px;
+    font-family: "Roboto", sans-serif;
+    box-sizing: border-box;
+}
+
+.input-wrapper textarea {
+    resize: none;
+    height: 80px;
+    padding-left: 10px; /* remove space for icon */
+}
