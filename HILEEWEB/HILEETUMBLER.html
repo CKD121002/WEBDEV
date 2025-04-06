@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="hileehome.css">
+    <title> HILEE </title>
+    <link rel="icon" type="png" href="logohillee-removebg-preview.png">
+
+<style>
+
+html, body {
+  height: 120%;
+  margin: 0; 
+  position: relative; 
+}
+
+@keyframes appear {
+  from { opacity: 1;
+    scale: 0.2;
+  }
+  to {
+    opacity: 1;
+    scale: 2;
+   }
+  }
+
+  .flask {
+    animation: appear linear;
+    animation-timeline: view();
+  }
+  
+</style>
+</head>
+
+  <body>
+ 
+  <header>
+    <div class="navbar">
+     <div class="logo">
+     <a href="#"><img src="logohillee-removebg-preview.png"></a> 
+     </div>
+       <ul>
+        <li><a href="login.html">Account</a></li>
+        <li><a href="/NewHileeCart/ShoppingHileeCart.html">Cart</a></li>
+        <li><a href="HILEETUMBLER.html">Home</a></li>
+        <li><a href="/About/about.html">About</a></li>
+        <li><a href="/PRODUCT/ProductWebDev.html">Product</a></li>
+       </ul>
+     </div>
+   </header>
+
+
+     <div class="fullbg">
+     <div class="gradientbg">
+
+  
+  <div class="halfbg" style="max-width:120%">
+    <img class="halfbg1" src="HILEEHALFBG.jpg_large" style="width: 100%">
+    <img class="halfbg2" src="BLUEBOWHALFBG.jpg_large" style="width:100%">
+    <img class="halfbg3" src="SAKURAHALFBG.jpg_large" style="width:100%">
+    <img class="halfbg4" src="FRUITHALFBG.jpg_large" style="width:100%">
+  </div>
+
+  <script>
+    var myIndex = 0;
+    carousel();
+
+    function carousel() {
+        var i;
+        var x = document.querySelectorAll(".halfbg img");
+        for (i = 0; i < x.length; i++) 
+            x[i].classList.remove("active"); 
+        myIndex++;
+        if (myIndex > x.length) { myIndex = 1; }    
+        x[myIndex - 1].classList.add("active"); 
+        setTimeout(carousel, 4000); 
+    }
+  </script>
+
+</div>
+
+<div class="text">
+  <h2> FEATURED PRODUCTS </h2>
+</div>
+
+    <div class="boxcontainer"> 
+
+    <div class="box" id="box1"> 
+      <p class="boxtext1"> SWEET HARVEST FRUIT VERSION </p>
+      <img src="fruitsweet.png">
+    </div>
+    
+    <div class="box" id="box2">
+      <p class="boxtext2"> SAKURA PINK VERSION </p>
+      <img src="pinksakura.png">
+    </div>
+
+    <div class="box" id="box3">
+      <p class="boxtext3"> GRADIENT METALLIC </p>
+      <img src="metallic.png">
+    </div>
+
+    <div class="box" id="box4"> 
+      <p class="boxtext4"> FREE SIP </p>
+      <img src="freesiip.png">
+    </div>
+  
+ 
+</div>
+
+<div class="flaskcontainer"> 
+
+  <div class="flask" id="flaskleak"> 
+    <img src="hileeflaskleakproof.jpg_medium">
+  </div>
+
+  <div class="flask" id="flaskcoldhot">
+    <img src="hileeflascoldhot.jpg_medium">
+  </div>
+</div>
+
+
+</div>
+</div>
+  
+</body>
+
+</html>
