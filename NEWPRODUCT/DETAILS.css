@@ -1,0 +1,118 @@
+*{
+    margin: 0%;
+}
+body {
+    margin: 0;
+}
+header {
+    background-color: #9677b5;
+    width: 100%;
+    height: 100px;
+    position: fixed;
+    z-index: 10;
+}
+.navbar {
+    display:flex;
+    float: center;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-top: 10px;
+    padding-left: 50px;
+}
+.logo {
+    color: black;
+}
+.logo img {
+    width: 80px;
+    border-radius: 50%;
+}
+li {
+    list-style: none;
+    display: inline-flex;
+    position: static;
+    padding: 16px 17px;
+}
+li a:hover {
+    color: burlywood;
+}
+li a {
+    font-family:sans-serif ;
+    font-size: 25px;
+    color: white;
+    margin-right: 20px;
+    font-weight: bold;
+}
+.imagecontainer{
+    position: absolute;
+    left: 50px;
+    top: 115px;
+    gap: 20px;
+    padding: 20px;
+    float: left; 
+    }
+.imagebox {
+    position: absolute;
+    left: 50px;
+    width: 350px; 
+    height: 400px; 
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.imagebox img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+h1{  
+    background: linear-gradient(#a1dcfa,#a79ccd);
+    border-radius: 10px;
+    padding-top: 30px;
+    padding-bottom: 60px;
+    padding-left: 30px;
+    padding-right: 10px;
+    position: relative;
+    top: 140px;
+    font-size: 30px;
+    height: 30px;
+    margin-left: 40%;
+    font-family: sans-serif;  
+    font-weight: bold;
+}
+p{
+    position: relative;
+    top: 160px;
+    margin-left: 45%;
+    font-family: sans-serif;
+    font-size: 30px;
+    font-weight: 500;
+}
+#sizes{
+    position: relative;
+    top: 200px;
+    left: 170px;
+    height: 70px;
+    width: 200px;
+    text-align: center;
+    border-radius: 30px;
+    font-family: sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+}
+@keyframes slideinright{
+    from{
+        transform: translateY(1000px);
+    }
+    to{
+        transform: translateY(0);
+    }
+}
+.hiddenright{
+    animation-name: slideinright;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: none;   
+}
