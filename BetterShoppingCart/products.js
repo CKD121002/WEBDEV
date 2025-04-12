@@ -2,7 +2,7 @@ const products = [
     {
         id: 1,
         title: "HILEE (Pear) Premium Flask Hydration",
-        price: "₱ 244.94 - 358.78",
+        price: "PHP 341.91",
         description: "Warming Time: 7-12 Hours Cooling Time: 12-24 Hours  Style: Classic Material: Stainless Steel Feature: Leak-proof, Heat Resistant, Anti-Scalding Volume: 20oz-43oz Quantity Per Pack: 1",
         colors: [
             {
@@ -10,8 +10,8 @@ const products = [
                 mainImage: "pear.jpg",
                 thumbnails: [
                     "pear.jpg",
-                    "pear.jpg",
-                    "pear.jpg"
+                    "raspberry.jpg",
+                    "blueberry.jpg"
                 ],
                 sizes: ["20oz", "27oz", "33oz", "43oz"],
             }   
@@ -20,7 +20,7 @@ const products = [
 {
     id: 2,
     title: "HILEE (Wax Apple) Premium Flask Hydration",
-    price: "₱ 244.94 - 358.78",
+    price: "PHP 341.91",
     description: "Warming Time: 7-12 Hours Cooling Time: 12-24 Hours  Style: Classic Material: Stainless Steel Feature: Leak-proof, Heat Resistant, Anti-Scalding Volume: 20oz-43oz Quantity Per Pack: 1",
         colors: [
             {
@@ -38,7 +38,7 @@ const products = [
     {
         id: 3,
         title: "HILEE (Blueberry) Premium Flask Hydration",
-        price: "₱ 244.94 - 358.78",
+        price: "PHP 341.91",
         description: "Warming Time: 7-12 Hours Cooling Time: 12-24 Hours  Style: Classic Material: Stainless Steel Feature: Leak-proof, Heat Resistant, Anti-Scalding Volume: 20oz-43oz Quantity Per Pack: 1",
             colors: [
                 {
@@ -56,7 +56,7 @@ const products = [
     {
         id: 4,
         title: "HILEE (Raspberry) Premium Flask Hydration",
-        price: "₱ 244.94 - 358.78",
+        price: "PHP 341.91",
         description: "Warming Time: 7-12 Hours Cooling Time: 12-24 Hours  Style: Classic Material: Stainless Steel Feature: Leak-proof, Heat Resistant, Anti-Scalding Volume: 20oz-43oz Quantity Per Pack: 1",
             colors: [
                 {
