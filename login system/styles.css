@@ -1,0 +1,266 @@
+body {
+    font-family: "Roboto", sans-serif;
+    background: linear-gradient(#d7bdef, #a7d1f7);
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Main Container */
+.container {
+    background: linear-gradient(#d7bdef, #a7d1f7);
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 500px; /* Keep this for max width */
+    min-height: 600px;
+    position: relative;
+    margin: auto; /* Center the container */
+}
+
+/* Form Styling */
+form {
+    width: 100%;
+    max-width: 400px; /* Keep this for max width */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto; /* Center the form */
+}
+
+/* Decorative Images */
+.container::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200px;
+    height: 200px;
+    background: url('Bg 1.png') no-repeat center/contain;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 200px;
+    background: url('bg 2.png') no-repeat center/contain;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Sparkles */
+.sparkle-top-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 100px;
+    background: url('sparkle 1.png') no-repeat center/contain;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.sparkle-bottom-right {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    background: url('sparkle 2.png') no-repeat center/contain;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Logo and Titles */
+.logo {
+    margin-bottom: 20px;
+}
+
+.logo img {
+    width: 80px;
+    height: auto;
+}
+
+.logo h1 {
+    margin: 10px 0 20px;
+    font-size: 24px;
+    color: black;
+}
+
+h1 {
+    margin: 0 0 20px;
+    color: black;
+}
+
+h2 {
+    margin: 0 0 20px;
+    color: white;
+}
+
+/* Input Groups */
+.input-group {
+    position: relative;
+    width: 85%;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    margin-left: auto;   
+    margin-right: auto;
+}
+
+.input-group i {
+    position: absolute;
+    font-size: 18px;
+    color: #8c52ff;
+    z-index: 2;
+}
+
+.input-group i.fa-user,
+.input-group i.fa-envelope {
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.input-group .toggle-icon {
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #8c52ff;
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    pointer-events: auto;
+    position: absolute;
+    z-index: 2;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 40px 12px 35px; /* Left for icon, right for toggle */
+    border: 2px solid #8c52ff;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    background-color: white;
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+/* Buttons */
+button, .btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+button {
+    background-color: #8a6be2;
+    color: white;
+}
+
+.btn {
+    background: linear-gradient(to right, #b48eff, #9a7bff);
+    color: white;
+}
+
+.create-text {
+    padding: 12px 20px;
+    background-color: #8a6be2; /* Matching button color */
+    color: white;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: normal;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+    display: inline-block;
+    margin-top: 10px;
+    text-decoration: none; /* Remove any underline if it's a link */
+}
+
+/* Success Message */
+.success-message {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    color: green;
+    border: 2px solid green;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 2s ease-out;
+}
+
+/* for the sign up page */ 
+.success-message.fade-out {
+    opacity: 0;
+}
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 2s ease-out;
+}
+
+/* for the resetpassword page */
+.success-message {
+    background-color: white;
+    border: 2px solid green;
+    border-radius: 8px;
+    color: green;
+    padding: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: bold;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Links and Text */
+.signin-text {
+    margin-top: 15px;
+    font-size: 16px;
+}
+
+.signin-text a {
+    color: #8c52ff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Error Message */
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    display: none;
+}
