@@ -370,7 +370,7 @@
            
            .chooseustext1{
             position: absolute; 
-            top: 220px;
+            top: 230px;
             font: Georgia;
             font-size: 23px;
             color: #8b61c2;
@@ -378,7 +378,7 @@
 
            .chooseustext2{
             position: absolute; 
-            top: 290px;
+            top: 300px;
             font: Georgia;
             font-size: 23px;
             color: #8b61c2;
@@ -386,7 +386,7 @@
 
            .chooseustext3{
             position: absolute; 
-            bottom: 320px;
+            bottom: 330px;
             font: Georgia;
             font-size: 23px;
             color: #8b61c2;
@@ -394,7 +394,7 @@
 
            .chooseustext4{
             position: absolute; 
-            bottom: 250px;
+            bottom: 260px;
             font: Georgia;
             font-size: 23px;
             color: #8b61c2;
@@ -402,7 +402,7 @@
 
            .chooseustext5{
             position: absolute; 
-            bottom: 180px;
+            bottom: 190px;
             font: Georgia;
             font-size: 23px;
             color: #8b61c2;
