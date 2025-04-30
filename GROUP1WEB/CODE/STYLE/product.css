@@ -1,0 +1,286 @@
+* {
+    text-decoration: none;
+    margin: 0;
+}
+body {
+    background-image: url(../Images/Hilee\ UI.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0;
+    z-index: -2;
+}
+.bgcontainer{
+    position: fixed;
+    margin: 0;
+    margin-left: 100px;
+    height: 100%;
+    width: 87%;
+    background-image: url(../Images/whitebg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.5;
+    z-index: -1;
+    pointer-events: none;
+ }
+ header {
+    background-color: #9677b5;
+    width: 100%;
+    height: 100px;
+    position: fixed;
+    opacity: 70%;
+    z-index: 10;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    
+    height: 100px;
+}
+
+.logo {
+    color: black;
+}
+
+.logo img {
+    position: absolute;
+    width: 110px;
+    height: 100px;
+    top: 1px;
+
+}
+
+li {
+    list-style: none;
+    display: inline-flex;
+    position: static;
+    padding-left: 20px;
+}
+
+li a:hover {
+    color: burlywood;
+}
+
+li a {
+    font-family: sans-serif;
+    font-size: 25px;
+    color: white;
+    margin-right: 20px;
+    font-weight: bold;
+}
+.cart-container {
+    position: relative;
+}
+
+  
+  .cart-icon {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    font-size: 30px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* The badge */
+.cart-count {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+    width: 20px;
+    height: 20px;
+    background-color: #e35f26;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 1;
+}
+
+.productcollection{
+    padding: 100px 5% 30px;
+}
+.productcollection h1{
+    font-size: 35px;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: 600;
+}
+.productlist {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+    gap: 30px; 
+    padding: 40px;
+}
+
+.productCard {
+    border: 1px solid #ddd; 
+    border-radius: 8px;
+    overflow: hidden; 
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.productCard:hover {
+    transform: translateY(-30px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.img-box {
+    width: 100%;
+    height: 350px; 
+    overflow: hidden;
+    position: relative;
+}
+
+.img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    transition: transform 1s ease;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 10px;
+    color: black;
+    transition: color 0.3s ease;
+}
+.productcollection .price {
+    font-size: 18px;
+    color: black;
+    font-weight: bold;
+    margin: 15px 10px;
+    margin-bottom: 20px;
+}
+.productCard:hover .title {
+    color: #1969ff;
+}
+.productCard:hover .price {
+    color: #1969ff;
+}
+.product-detail{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    padding: 130px 9% 30px;
+}
+.back {
+    position: fixed; 
+    top: 100px;       
+    left: 30px;       
+    z-index: 9999;    
+    background-color: #9677b5;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease;
+}
+
+.back:hover {
+    background-color: #555;
+}
+.product-detail .product-img{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    gap: 12px;
+    height: 550px;
+}
+.product-detail .product-img img{
+    display: block;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: 1s;
+}
+.product-detail .product-img img:hover{
+    transform: scale(1.1);  
+}
+.product-detail .thumbnail-list{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.product-detail .thumbnail-list img{
+    height: calc(100% / 4 - 9px);
+    cursor: pointer;
+}
+.product-detail .title{
+    font-weight: 600;
+    font-size: 30px;
+    margin-left: 0;
+    margin-bottom: 8px;
+}
+.product-detail .price{
+    display: block;
+    font-size: 25px;
+    font-weight: 600;
+    margin: 20px 0;
+}
+.product-detail .description{
+    margin-bottom: 15px;
+}
+.product-detail :is(.size-collection, .color-sellection){
+    margin: 20px 0;
+    margin-bottom: 8px;
+}
+.product-detail :is(.size-collection p, .color-sellection p){
+    margin-bottom: 10px;
+}
+.product-detail .size-options button{ 
+     width: 45px;
+     height: 45px;
+     background: #f2f2f2;
+     border: 2px solid transparent;
+     cursor: pointer;
+     margin-bottom: 8px;
+}
+.product-detail :is(.size-options, .color-options){
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+.product-detail .color-options img{
+    width: 45px;
+    height: 45px;
+    border: 2px solid transparent;
+    cursor: pointer;
+}
+.product-detail :is(.size-options .selected, .color-options .selected){
+    border-color: #999;
+}
+.button{
+    padding: 12px 50px;
+    background: #9677b5;
+    border: none;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: 1s;
+}
+.button:hover{
+    transform: scale(1.3);
+}
+.product-detail .product-policy{
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+.product-detail .product-policy p{
+    margin: 3px 0;
+}
