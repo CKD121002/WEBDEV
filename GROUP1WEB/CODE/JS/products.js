@@ -1,4 +1,5 @@
-const products = [
+window.products = [
+    
     {
         id: 1,
         title: "HILEE (Pear) Premium Flask Hydration",

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="../style/hileehome.css">
+  <title> HILEE </title>
+  <link rel="icon" type="png" href="../IMGS/logohillee-removebg-preview.png">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+    rel="stylesheet"/>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+</head>
+
+<body>
+  <header>
+    <div class="navbar">
+
+      <div class="logo">
+        <a href="../php/HILEETUMBLER.php"><img src="../../imgs/hilee.png"></a>
+      </div>
+      <ul>
+        <li><a href="../php/ACCOUNT.php">Account</a></li>
+        <li><a href="../php/HILEETUMBLER.php">Home</a></li>
+        <li><a href="../PHP/about.php">About</a></li>
+        <li><a href="../php/product.html">Product</a></li>
+
+        <li>
+          <a href="../php/shoppingcart.php" class="cart-icon">
+            <i class="ri-shopping-cart-2-line"></i>
+            <span class="cart-count"> </span>
+          </a>
+        </li>
+
+      </ul>
+    </div>
+  </header>
+
+  <div class="fullbg">
+
+    <div class="gradientbg">
+
+      <a href="#" class="toTOP">
+        <img src="../../IMGS/UPBUTTON-removebg-preview.png">
+      </a>
+
+
+      <div class="halfbg" style="max-width:120%">
+        <img class="halfbg1" src="../../IMGS/HILEEHALF1ST.jpg" style="width: 100%">
+        <img class="halfbg2" src="../../IMGS/BLUEBOWHALFBG.jpg" style="width:100%">
+        <img class="halfbg3" src="../../IMGS/SAKURAHALFBG.jpg" style="width:100%">
+        <img class="halfbg4" src="../../IMGS/FRUITHALFBG.jpg" style="width:100%">
+      </div>
+
+      <script>
+        var myIndex = 0;
+        carousel();
+
+        function carousel() {
+          var i;
+          var x = document.querySelectorAll(".halfbg img");
+          for (i = 0; i < x.length; i++)
+            x[i].classList.remove("active");
+          myIndex++;
+          if (myIndex > x.length) {
+            myIndex = 1;
+          }
+          x[myIndex - 1].classList.add("active");
+          setTimeout(carousel, 4000);
+        }
+      </script>
+
+    </div>
+
+    <div class="text">
+      <h2> FEATURED PRODUCTS </h2>
+    </div>
+
+    <div class="boxcontainer">
+
+      <div class="box" id="box1">
+        <p class="boxtext1">
+          <a href="ProductDetails.html?product=pear"> SWEET HARVEST [PEAR] </a>
+        </p> 
+        <img src="../../IMGS/pearrr-removebg-preview.png">
+      </div>
+
+      <div class="box" id="box2">
+        <p class="boxtext2">
+          <a href="ProductDetails.html?product=pineapple"> SWEET HARVEST [PINEAPPLE] </a>
+        </p>
+        <img src="../../IMGS/pineapple-removebg-preview.png">
+      </div>
+
+      <div class="box" id="box3">
+        <p class="boxtext3">
+          <a href="ProductDetails.html?product=green apple"> SWEET HARVEST [GREEN APPLE] </a>
+        </p>
+        <img src="../../IMGS/green_apple-removebg-preview.png">
+      </div>
+
+      <div class="box" id="box4">
+        <p class="boxtext4">
+          <a href="ProductDetails.html?product=wax apple"> SWEET HARVEST [WAX APPLE] </a>
+        </p>
+        <img src="../../IMGS/wax_apple-removebg-preview.png">
+      </div>
+
+     
+    </div>
+    <button class="button1" onclick="location.href='../../CODE/PHP/product.html'"> SHOP FOR MORE </button> <!-- ADD PRODUCT PAGE -->
+
+    <div class="flaskcontainer">
+
+      <div class="flask" id="flaskleak">
+        <img src="../../IMGS/hileeflaskleakproof.jpg_medium">
+      </div>
+
+      <div class="flask" id="flaskcoldhot">
+        <img src="../../IMGS/hileeflascoldhot.jpg_medium">
+      </div>
+    </div>
+
+
+
+    <div class="chooseuscontainer">
+
+      <h1 class="chooseustext"> Introducing the HILEE Tumbler, designed for your ultimate hydration needs with a stylish touch. </h1>
+
+      <p class="chooseustext1"> Material: Crafted from durable stainless steel, ensuring long-lasting use. </p>
+
+      <p class="chooseustext2"> Volume: Holds between 1,000-2,000 ml of liquid for ample hydration. </p>
+
+      <p class="chooseustext3"> Features: Leak-proof design and heat-resistant properties to keep your drinks secure and safe from burns. </p>
+
+      <p class="chooseustext4"> Keeps Drinks Hot/Cold: Effective warming time of 12-24 hours for optimal temperature retention. </p>
+
+      <h1 class="chooseustext5"> This stylish tumbler not only looks great but also offers practicality for everyday use! </h1>
+
+
+      <button class="button2" onclick="location.href='../php/about.php'"> LEARN MORE </button> <!-- ADD ABOUT US PAGE -->
+
+      <div class="chooseus">
+        <img src="../../IMGS/HILEELEARN.jpg"></img>
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+ 
+</body>
+
+<footer>
+  
+  <ul class="social_icon">
+  <li>
+  <a href= "https://facebook.com/profile.php?id=61565449175554"><i class="fa-brands fa-facebook"></i></i></a>
+  </li>
+  <li>
+  <a href= "https://tiktok.com/@hilee_53?_t=ZS-8vQGqC7T4fC&_r=1"><i class="fa-brands fa-tiktok"></i></a>
+  </li>
+  <li>
+  <a href= "https://ph.shp.ee/i2qQSbL"><i class="fa-brands fa-shopify"></i></a>
+  </li>
+  <li>
+  <a href= "https://instagram.com/hilee_53?igsh=MWd6MG1tdnE5MWl5dQ=="><i class="fa-brands fa-instagram"></i></a>
+  </li>
+  </ul>
+  <ul class="menu">
+  <li><a href="../php/ACCOUNT.php">Account</a></li>  <!-- CHANGE INTO OTHER HTML -->
+  <li><a href="../PHP/shoppingcart.php">Cart</a></li>
+  <li><a href="HILEETUMBLER.html">Home</a></li>
+  <li><a href="../PHP/about.php">About</a></li>
+  <li><a href="../PHP/product.html">Product</a></li>
+  </ul>
+  <p> ©2025 HILEE | All Rights Reserved</p>
+  </footer>
+
+</html>

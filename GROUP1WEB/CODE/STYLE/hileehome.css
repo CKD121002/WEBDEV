@@ -487,3 +487,71 @@ button:focus:before {
     background-position: center;
 }
 
+footer {
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    background-image: linear-gradient( #3485ff,#c2a3e9);
+    min-height: 150px;
+    padding: 10px;
+    margin: 0;
+    
+    display: flex;
+    justify-content: center;
+    
+    align-items: center;
+    flex-direction: column;
+    }
+
+    footer .social-icon,
+    footer .menu {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    flex-wrap: wrap;
+    }
+
+    footer .social_icon li,
+    footer .menu li {
+    list-style: none;
+    }
+
+    footer .social_icon li a {
+    font-size: 2em;
+    color: lavenderblush;
+    margin: 0 10px;
+    display: inline-block;
+    text-decoration: none;
+    transition: 0.5s;
+    }
+
+    footer .social_icon li a:hover {
+    transform: translateY(-10px);
+    }
+
+    footer .menu li a {
+    font-size: 1.2em;
+    color: lavenderblush;
+    margin:0 10px;
+    display: inline-block;
+    text-decoration: none;
+    opacity: 0.75;
+    transition: 0.5s;
+    }
+
+    footer .menu li a:hover {
+    opacity: 1;
+    }
+    
+    footer p {
+    font-size: 1.1em;
+    color: rgb(15, 15, 15);
+    margin-top: 15px;
+    margin-bottom: 10px;
+    display: inline-block;
+    text-align: center;
+    opacity: 0.75;
+    }
+    
