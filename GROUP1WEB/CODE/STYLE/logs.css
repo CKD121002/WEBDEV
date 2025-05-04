@@ -82,6 +82,8 @@ h2 {
 .input-group {
     position: relative;
     width: 85%;
+    display: flex;
+    align-items: center;
     margin-bottom: 5px;
 }
 
@@ -95,6 +97,7 @@ h2 {
 }
 
 .input-group input {
+    flex: 1px;
     padding: 12px 40px;
     border: 2px solid #8c52ff;
     border-radius: 5px;
@@ -126,3 +129,23 @@ button {
     height: 40px;
     cursor: pointer;
 }
+
+.success-message {
+    background-color: #d4edda; 
+    color: #155724;            
+    border: 2px solid #28a745;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 15px 0;
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
+    animation: fadeOut 1s ease-in-out 4s forwards;
+}
+
+@keyframes fadeOut {
+    to {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
