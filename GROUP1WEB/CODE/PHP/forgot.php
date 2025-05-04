@@ -56,13 +56,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <?php if (!empty($error)) { echo "<p style='color:red;'>$error</p>"; } ?>
 
         <div class="input-group">
+            <i class="fas fa-envelope"></i>
+            <input type="email" placeholder="Email" id="reset-email" name="reset-email" required>
+        </div>
+        <div class="input-group">
             <input type="password" id="reset-password" name="reset-password" placeholder="Enter old Password" required>
             <br>
             <i class="fas fa-lock toggle-icon"></i>
-        </div>
-        <div class="input-group">
-            <i class="fas fa-envelope"></i>
-            <input type="email" placeholder="Email" id="reset-email" name="reset-email" required>
         </div>
         <button type="submit" name="reset">Reset</button>
 
