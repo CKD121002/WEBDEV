@@ -1,97 +1,74 @@
 <?php
 session_start();
-$value = "";
-if (isset($_SESSION['email']) && $_SESSION['efound'] == true) {
-    $value = $_SESSION['email'];
-} else {
-    $value = '';
-}
+include("../backend/connectdb.php");
 
-$found = false;
-if (isset($_SESSION['efound']) && $_SESSION['efound'] == true) {
-    $found = true;
-    $_SESSION['efound'] = false;
+$success = '';
+$error = '';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (isset($_POST['reset'])) {
+        $email = $_POST['reset-email'];
+        $oldPassword = $_POST['reset-password'];
+
+        
+        $stmt = $conn->prepare("SELECT * FROM users WHERE EMAIL = ?");
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $user = $result->fetch_assoc();
+
+        if ($user && $oldPassword == $user['PASSWORD']) { 
+            $_SESSION['reset_email'] = $email;
+            $_SESSION['efound'] = true; 
+            header("Location: create_newpass.php");
+            exit();
+        } else {
+            $error = "Incorrect email or old password!";
+        }
+    }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HiLєє - landscape</title>
+    <title>HiLєє - Reset Password</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="..\style\logs.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="..\style\logs.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> 
 </head>
 
 <body>
-    <img src="..\..\imgs\Bg1-removebg-preview.png" class="bg1">
+  <img src="..\..\imgs\Bg1-removebg-preview.png" class="bg1">
     <img src="..\..\imgs\Bg_2-removebg-preview.png" class="bg2">
     <img src="..\..\imgs\sparkle_1-removebg-preview.png" class="sp1">
     <img src="..\..\imgs\sparkle_2-removebg-preview.png" class="sp2">
 
-    <div class="container" id="login-page">
+<form action="forgot.php" method="POST">
+    <div class="container" id="reset-password-page">
         <div class="logo">
-            <img src="..\..\imgs/hilee-logo.png" alt="Logo" width="80px" height="50px"><br>
+            <img src="..\..\imgs\hilee-logo.png" alt="Logo" width="40px" height="50px">
             <h1>HiLєє</h1>
         </div>
+        <h2>Reset Password</h2>
 
-        <h2>RESET PASSWORD</h2>
-        <?php if (isset($_SESSION['sreset']) && $_SESSION['sreset'] == true):
-            $_SESSION['sreset'] = false ?>
-            <p id="login-error" style="color: white; font-weight: bold;">Successfully Resetted Password.</p>
-        <?php endif; ?>
+        <?php if (!empty($success)) { echo "<div class='success-message'>$success</div>"; } ?>
+        <?php if (!empty($error)) { echo "<p style='color:red;'>$error</p>"; } ?>
 
-        <form action="../backend/forforgot.php" method="post">
-            <div class="input-group">
-                <i class="fa fa-user"></i>
-                <input name="Email" type="text" id="username" placeholder="Email" value="<?php echo $value; ?>">
+        <div class="input-group">
+            <input type="password" id="reset-password" name="reset-password" placeholder="Enter old Password" required>
+            <br>
+            <i class="fas fa-lock toggle-icon"></i>
+        </div>
+        <div class="input-group">
+            <i class="fas fa-envelope"></i>
+            <input type="email" placeholder="Email" id="reset-email" name="reset-email" required>
+        </div>
+        <button type="submit" name="reset">Reset</button>
 
+        <p class="signin-text">Already have an account? <a href="..\..\index.php">Login</a></p>
+    </div> 
+</form>
 
-            </div>
-
-            <?php if (isset($_SESSION['wemail']) && $_SESSION['wemail'] == true):
-                $_SESSION['wemail'] = false ?>
-                <p id="login-error" style="color: red;">Email not found.</p>
-            <?php endif; ?>
-            <?php if($found == false): ?>
-                <button class="login-btn" name="femail" type="submit">Find Email</button>
-                <a href="..\..\index.php" style="color: white; text-decoration: none; font-weight: bold;">Go Back to Login</a>
-            <?php else: ?>
-                <div class="input-group">
-                    <input type="password" id="password" placeholder="Password">
-                    <i class="fas fa-lock toggle-icon" "></i>
-                </div>
-                <div class="input-group">
-                    <input name="password" type="password" id="cpassword" placeholder="Confirm Password" oninput="check()">
-                    <i class="fas fa-lock toggle-icon" "></i>
-                </div>
-                <p id="ermes" style="color: red; display: none;">Passwords Do Not Match.</p>
-                <button class="create-text" type="submit" name="reset" id="resetb" style="display: none;">Reset Now</button>
-            <?php endif; ?>
-        </form>
-    </div>
-
-    <script>
-        function check() {
-            var reset = document.getElementById('resetb');
-            var pass = document.getElementById('password').value;
-            var cpass = document.getElementById('cpassword').value;
-            var mess = document.getElementById('ermes');
-
-            if (cpass !== pass) {
-                mess.style.display = "block";
-                reset.style.display = "none"; 
-            } else {
-                mess.style.display = "none";
-                reset.style.display = "block"; 
-            }
-        }
-
-
-
-    </script>
 </body>
-
 </html>
