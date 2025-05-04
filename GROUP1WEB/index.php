@@ -29,7 +29,7 @@ session_start();
         <h2>WELCOME!</h2>
         <?php if (isset($_SESSION["Sreg"]) && $_SESSION["Sreg"] == true):
             $_SESSION["Sreg"] = false; ?>
-            <h3 style="margin: 0; color: white;">Sign Up Success! Login In now!</h3>
+            <div class="success-message">Sign Up Successfully! Login In now!</div>
         <?php endif; ?>
 
         <form action="CODE/BACKEND/login.php" method="post">
