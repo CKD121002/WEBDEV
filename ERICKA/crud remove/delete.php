@@ -1,5 +1,5 @@
 <?php
-include 'connect.php';
+include 'db_conn.php';
 
 $conn = new mysqli("localhost", "root", "", "simple_crud");
 $id = $_GET["id"];
