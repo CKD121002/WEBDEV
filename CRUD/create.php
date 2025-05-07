@@ -1,96 +1,76 @@
+<?php
+include 'database.php';
+
+$errors = [];
+$name = $address = $birthday = $gender = $course = '';
+
+// Handle form submission
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = trim($_POST["name"]);
+    $address = trim($_POST["address"]);
+    $birthday = $_POST["birthday"];
+    $gender = $_POST["gender"];
+    $course = trim($_POST["course"]);
+
+    if (empty($name)) $errors['name'] = "Name is required";
+    if (empty($address)) $errors['address'] = "Address is required";
+    if (empty($birthday)) $errors['birthday'] = "Birthday is required";
+    if (empty($gender)) $errors['gender'] = "Gender is required";
+    if (empty($course)) $errors['course'] = "Course is required";
+
+    if (count($errors) === 0) {
+        $stmt = $conn->prepare("INSERT INTO user (name, address, birthday, gender, course) VALUES (?, ?, ?, ?, ?)");
+        $stmt->bind_param("sssss", $name, $address, $birthday, $gender, $course);
+        $stmt->execute();
+        $stmt->close();
+        header("Location: read.php?msg=Student added successfully");
+        exit();
+    }
+}
+
+// Fetch data
+$students = $conn->query("SELECT * FROM user");
+?>
+
 <!DOCTYPE html>
-<html>
 <head>
-    <title>USER INFO</title>
+    <title>USER Form</title>
     <link rel="stylesheet" href="create.css">
 </head>
 <body>
+    <div class="form-container">
+        <form action="" method="POST">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="name" value="<?php echo $name; ?>">
+                <span class="error"><?php echo $errors['name'] ?? ''; ?></span>
+            </div>
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <textarea name="address" id="address"><?php echo $address; ?></textarea>
+                <span class="error"><?php echo $errors['address'] ?? ''; ?></span>
+            </div>
+            <div class="form-group">
+                <label for="birthday">Birthday:</label>
+                <input type="date" name="birthday" id="birthday" value="<?php echo $birthday; ?>">
+                <span class="error"><?php echo $errors['birthday'] ?? ''; ?></span>
+            </div>
+            <label>Gender:</label>
+            <div class="gender-options">
+            <label><input type="radio" name="gender" value="Male" <?php if ($gender == "Male") echo "checked"; ?>> Male</label>
+            <label><input type="radio" name="gender" value="Female" <?php if ($gender == "Female") echo "checked"; ?>> Female</label>
+            </div>
+            <span style="color:red"><?php echo $errors['gender'] ?? ''; ?></span>
 
-<?php
-include "database.php"; // Include the database connection
-
-$id = $name = $address = $birthday = $gender = "";
-$courses = [];
-$errors = [];
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Validation logic
-    if (empty($_POST["name"])) {
-        $errors['name'] = "Name is required";
-    } else {
-        $name = htmlspecialchars($_POST["name"]);
-        if (!preg_match("/^[a-zA-Z\s]+$/", $name)) {
-            $errors['name'] = "Only letters and white space allowed";
-        }
-    }
-
-    if (empty($_POST["address"])) {
-        $errors['address'] = "Address is required";
-    } else {
-        $address = htmlspecialchars($_POST["address"]);
-    }
-
-    if (empty($_POST["birthday"])) {
-        $errors['birthday'] = "Birthday is required";
-    } else {
-        $birthday = $_POST["birthday"];
-    }
-
-    if (empty($_POST["gender"])) {
-        $errors['gender'] = "Gender is required";
-    } else {
-        $gender = $_POST["gender"];
-    }
-
-    if (empty($_POST["courses"])) {
-        $errors['courses'] = "At least one course must be selected";
-    } else {
-        $courses = $_POST["courses"];
-    }
-    
-    // If no errors, insert into the database
-    if (empty($errors)) {
-        $courseStr = implode(", ", $courses); // Convert courses array to a string
-    
-        $sql = "INSERT INTO student (NAME, ADDRESS, GENDER, COURSE) 
-        VALUES ('$name', '$address', '$gender', '$courseStr')";
-
-    
-        if (mysqli_query($conn, $sql)) {
-            header("Location: read.php?msg=New record added successfully");
-            exit(); // Redirect to read.php
-        } else {
-            echo "Error: " . mysqli_error($conn);
-        }
-    }
-}
-?>
-
-<form method="post" action="UPDATE.php?ID=<?= htmlspecialchars($student['ID']) ?>">
-
-
-    Name: <input type="text" name="name" value="<?php echo $name; ?>">
-    <span style="color:red"><?php echo $errors['name'] ?? ''; ?></span><br><br>
-
-    Address: <textarea name="address"><?php echo $address; ?></textarea>
-    <span style="color:red"><?php echo $errors['address'] ?? ''; ?></span><br><br>
-
-    Birthday: <input type="date" name="birthday" value="<?php echo $birthday; ?>">
-    <span style="color:red"><?php echo $errors['birthday'] ?? ''; ?></span><br><br>
-
-    Gender:
-    <input type="radio" name="gender" value="Male" <?php if ($gender == "Male") echo "checked"; ?>>Male
-    <input type="radio" name="gender" value="Female" <?php if ($gender == "Female") echo "checked"; ?>>Female
-    <span style="color:red"><?php echo $errors['gender'] ?? ''; ?></span><br><br>
-
-    Courses:
-    <input type="checkbox" name="courses[]" value="BSIS" <?php if (in_array("BSIS", $courses)) echo "checked"; ?>>BSIS
-    <input type="checkbox" name="courses[]" value="BSE" <?php if (in_array("BSE", $courses)) echo "checked"; ?>>BSE
-    <input type="checkbox" name="courses[]" value="BTVTED" <?php if (in_array("BTVTED", $courses)) echo "checked"; ?>>BTVTED
-    <span style="color:red"><?php echo $errors['courses'] ?? ''; ?></span><br><br>
-
-    <input type="submit" name="submit" value="Submit">
-</form>
-
+            <div class="form-group">
+                <label for="course">Course:</label>
+                <input type="text" name="course" id="course" value="<?= $course ?>">
+                <span class="error"><?php echo $errors['course'] ?? ''; ?></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" name="submit" value="Submit">
+            </div>
+        </form>
+    </div>
 </body>
 </html>

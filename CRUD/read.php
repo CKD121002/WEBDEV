@@ -1,7 +1,6 @@
 <?php include "database.php"; ?>
 
 <!DOCTYPE html>
-<html>
 <head>
   <title>User Info</title>
   <link rel="stylesheet" href="read.css">
@@ -9,14 +8,14 @@
 <body>
   <nav>User Info</nav>
   <div class="container">
-  <?php
-if (isset($_SESSION["msg"])): ?>
+
+  <?php if (isset($_GET["msg"])): ?>
   <div class="alert" role="alert">
-    <?= htmlspecialchars($_SESSION["msg"]) ?>
+    <?= htmlspecialchars($_GET["msg"]) ?>
     <button type="button" class="btn-close" onclick="this.parentElement.style.display='none'">x</button>
   </div>
-  <?php unset($_SESSION["msg"]); ?>
 <?php endif; ?>
+
 
     <a href="create.php" class="btn">Add New</a>
 
@@ -26,6 +25,7 @@ if (isset($_SESSION["msg"])): ?>
           <th>ID</th>
           <th>Name</th>
           <th>Address</th>
+          <th>Birthday</th>
           <th>Gender</th>
           <th>Course</th>
           <th>Actions</th>
@@ -33,29 +33,28 @@ if (isset($_SESSION["msg"])): ?>
       </thead>
       <tbody>
         <?php
-        // Fetch all records from the student table
-        $sql = "SELECT * FROM student";
+        $sql = "SELECT * FROM user";
         $result = mysqli_query($conn, $sql);
-
         if ($result && mysqli_num_rows($result) > 0):
           while ($row = mysqli_fetch_assoc($result)):
         ?>
             <tr>
-              <td><?= $row["ID"] ?></td>
+              <td><?= $row["id"] ?></td>
               <td><?= htmlspecialchars($row["name"]) ?></td>
               <td><?= htmlspecialchars($row["address"]) ?></td>
+              <td><?= htmlspecialchars($row["birthday"]) ?></td>
               <td><?= htmlspecialchars($row["gender"]) ?></td>
               <td><?= htmlspecialchars($row["course"]) ?></td>
               <td class="action-icons">
-              <a href="UPDATE.php?ID=<?= $row["ID"] ?>">Edit</a> |
-                <a href="delete.php?id=<?= $row["ID"] ?>" onclick="return confirm('Are you sure?')">Delete</a>
+                <a href="update.php?id=<?= $row["id"] ?>">Edit</a> |
+                <a href="delete.php?id=<?= $row["id"] ?>" onclick="return confirm('Are you sure?')">Delete</a>
               </td>
             </tr>
         <?php
           endwhile;
         else:
         ?>
-          <tr><td colspan="6">No student records found.</td></tr>
+          <tr><td colspan="7">No user records found.</td></tr>
         <?php endif; ?>
       </tbody>
     </table>
