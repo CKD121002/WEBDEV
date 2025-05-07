@@ -1,0 +1,128 @@
+body {
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(#d7bdef, #a7d1f7);
+    width: 100vw;
+}
+
+.container {
+    background: linear-gradient(#d7bdef, #a7d1f7);
+    padding: 50px;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.bg1,
+.bg2 {
+    position: absolute;
+    height: 400px;
+    width: 400px;
+    z-index: 1;
+}
+
+.sp1,
+.sp2 {
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    z-index: 1;
+}
+
+.sp1 {
+    top: 0px;
+    left: 0px;
+}
+
+.sp2 {
+    right: 0px;
+    bottom: 0px;
+}
+
+.bg1 {
+    left: 0px;
+    bottom: 0px;
+}
+
+.bg2 {
+    top: 0px;
+    right: 0px;
+}
+
+.logo {
+    margin-bottom: 20px;
+}
+
+.logo img {
+    width: 80px;
+    height: auto;
+}
+
+h1 {
+    margin: 0 0 20px;
+    color: black;
+}
+
+h2 {
+    margin: 0 0 20px;
+    color: white;
+}
+
+.input-group {
+    position: relative;
+    width: 85%;
+    margin-bottom: 5px;
+}
+
+.input-group i {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #8c52ff;
+}
+
+.input-group input {
+    padding: 12px 40px;
+    border: 2px solid #8c52ff;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    background-color: white;
+}
+
+button {
+    background-color: #a251ee;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 40px;
+    margin-top: 15px;
+}
+
+.social-icons img {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
