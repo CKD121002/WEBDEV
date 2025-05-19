@@ -4,7 +4,6 @@ session_start();
 $name = "";
 $email = "";
 
-// PARA MAGDISPLAY YUNG SAME NAME AT EMAIL DUN SA ACCOUNT FILE
 
 if (isset($_SESSION['sname'])) {
     $name = $_SESSION['sname'];

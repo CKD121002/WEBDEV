@@ -196,7 +196,7 @@ if ($row = $result->fetch_assoc()) {
     </div>
 
 
-    <script> // KAY MJ NA PART ITUUU
+    <script>
 
         function togglePaymentOptions() {
             var paymentMethod = document.getElementById('paymentMethod').value;

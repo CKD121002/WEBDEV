@@ -18,7 +18,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             if ($password == $row['PASSWORD']) {
                 $_SESSION['semail'] = $email;
                 $_SESSION['sname'] = $row['NAME'];
-                $_SESSION['success'] = "Login successful! Welcome, " . $row['NAME']; 
                 header("Location: ../PHP/HILEETUMBLER.php");
                 exit();
             } else {

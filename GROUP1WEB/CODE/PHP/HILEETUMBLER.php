@@ -1,13 +1,3 @@
-<?php
-session_start();
-
-$successMessage = "";
-if (isset($_SESSION['success'])) {
-    $successMessage = $_SESSION['success'];
-    unset($_SESSION['success']); 
-}
-?>
-
 <!DOCTYPE html>
 <html>
 
@@ -20,37 +10,7 @@ if (isset($_SESSION['success'])) {
 </head>
 
 <body>
-<?php if (!empty($successMessage)): ?>
-    <div class="success-message" id="success-msg"><?php echo $successMessage; ?></div>
-  <?php endif; ?>
   <header>
-    
-  <style>
-.success-message {
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #d4edda; 
-    color: #155724; 
-    padding: 12px 24px;
-    border: 2px solid #28a745; 
-    border-radius: 8px;
-    font-weight: bold;
-    font-family: Arial, sans-serif;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    z-index: 1000;
-    animation: fadeOut 1s ease-in-out 4s forwards;
-  }
-  
-  @keyframes fadeOut {
-    to {
-      opacity: 0;
-      visibility: hidden;
-    }
-  }
-    </style>
-
     <div class="navbar">
 
       <div class="logo">
