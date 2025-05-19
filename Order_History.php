@@ -6,6 +6,35 @@ session_start();
 $name = $_SESSION['sname'];
 $email = $_SESSION['semail'];
 
+
+
+
+if (!isset($_SESSION['semail'])) {
+    echo "User not logged in.";
+    exit;
+}
+
+$email = $_SESSION['semail'];
+
+// Get user ID from email
+$stmt = $conn->prepare("SELECT id FROM users WHERE email = ?");
+$stmt->bind_param("s", $email);
+$stmt->execute();
+$result = $stmt->get_result();
+$user = $result->fetch_assoc();
+
+if (!$user) {
+    echo "User not found.";
+    exit;
+}
+
+$user_id = $user['id'];
+
+// Fetch user orders from usersdata
+$query = $conn->prepare("SELECT product, size, quantity, tprice, date FROM usersdata WHERE id = ? ORDER BY date DESC");
+$query->bind_param("i", $user_id);
+$query->execute();
+$orders = $query->get_result();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,10 +78,13 @@ $email = $_SESSION['semail'];
                     </div>
                 </div>
                 <div class="menu">
-                    <a href="ACCOUNT.php" class="menu-link" style="background-color: white; color: #768499;"><i class="fa-solid fa-circle-user menu-icon"></i>Account</a>
-                    <a href="RPASS.php" class="menu-link" style="background-color: white; color: #768499;"><i class="fa-solid fa-shield menu-icon"></i>Security &
+                    <a href="ACCOUNT.php" class="menu-link" style="background-color: white; color: #768499;"><i
+                            class="fa-solid fa-circle-user menu-icon"></i>Account</a>
+                    <a href="RPASS.php" class="menu-link" style="background-color: white; color: #768499;"><i
+                            class="fa-solid fa-shield menu-icon"></i>Security &
                         Access</a>
-                    <a href="Order_History.php" class="menu-link" style="background-color: #536DFE; color: white;"><i class="fa fa-history"></i>Order History</a>
+                    <a href="Order_History.php" class="menu-link" style="background-color: #536DFE; color: white;"><i
+                            class="fa fa-history" style="margin-right: 10px;"></i>Order History</a>
                     <a href="logout.php" class="menu-link"><i
                             class="fa-solid fa-right-from-bracket menu-icon"></i>Logout</a>
                 </div>
@@ -62,25 +94,41 @@ $email = $_SESSION['semail'];
                 <div class="account-header">
                     <h1 class="account-title">Account Order History</h1>
                 </div><br>
-                <table style="width: 95%; height: 300px; border-collapse: collapse; margin: auto;" border="1" cellpadding="10" cellspacing="0">
-    <thead style="background-color: #f2f2f2;">
-        <tr>
-            <th style="width: 30%;">Product</th>
-            <th style="width: 15%;">Size</th>
-            <th style="width: 15%;">QTY</th>
-            <th style="width: 20%;">Total Price</th>
-            <th style="width: 20%;">Date</th>
+                <div style="height: 300px; width: 95%; margin-bottom: 30px; border: 1px solid #ccc; overflow: hidden;">
+                    <table style="width: 100%; border-collapse: collapse;" cellpadding="10" cellspacing="0">
+                        <thead style="background-color: #f2f2f2;">
+                            <tr>
+                                <th style="width: 30%;">Product</th>
+                                <th style="width: 15%;">Size</th>
+                                <th style="width: 15%;">QTY</th>
+                                <th style="width: 20%;">Total Price</th>
+                                <th style="width: 20%;">Date</th>
+                            </tr>
+                        </thead>
+                    </table>
 
-        </tr>
-    </thead>
-    <tbody style="text-align: center;">
-        <?php
-       
-        
-        ?>
-    </tbody>
-</table>
-
+                    <div style="max-height: 300px; overflow-y: auto;">
+                        <table style="height: 200px; width: 100%; border-collapse: collapse;" cellpadding="10" cellspacing="0">
+                            <tbody style="text-align: center;">
+                                <?php if ($orders->num_rows > 0): ?>
+                                    <?php while ($row = $orders->fetch_assoc()): ?>
+                                        <tr>
+                                            <td style="width: 30%;"><?php echo htmlspecialchars($row['product']); ?></td>
+                                            <td style="width: 15%;"><?php echo htmlspecialchars($row['size']); ?></td>
+                                            <td style="width: 15%;"><?php echo htmlspecialchars($row['quantity']); ?></td>
+                                            <td style="width: 20%;">₱<?php echo number_format($row['tprice'], 2); ?></td>
+                                            <td style="width: 20%;"><?php echo htmlspecialchars($row['date']); ?></td>
+                                        </tr>
+                                    <?php endwhile; ?>
+                                <?php else: ?>
+                                    <tr>
+                                        <td colspan="5">No orders found.</td>
+                                    </tr>
+                                <?php endif; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
 
             </form>
         </div>
